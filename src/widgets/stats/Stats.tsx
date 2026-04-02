@@ -1,12 +1,16 @@
 import StatCard from "./StatCard";
+import type { Stat } from "./types";
 
-export default function Stats() {
+type Props = {
+  data: Stat[];
+};
+
+export default function Stats({ data }: Props) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <StatCard title="Users" value={120} />
-      <StatCard title="Revenue" value="$3,400" />
-      <StatCard title="Orders" value={89} />
-      <StatCard title="Growth" value="+12%" />
+      {data.map((item) => (
+        <StatCard key={item.title} {...item} />
+      ))}
     </div>
   );
 }

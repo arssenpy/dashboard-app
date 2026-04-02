@@ -1,3 +1,5 @@
+import type { ChartItem } from "./types";
+
 import {
   LineChart,
   Line,
@@ -7,15 +9,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "test", value: 1 },
-  { name: "test", value: 2 },
-  { name: "test", value: 3 },
-  { name: "test", value: 4 },
-  { name: "test", value: 5 },
-];
+type Props = {
+  data: ChartItem[];
+};
 
-export default function Chart() {
+export default function Chart({ data }: Props) {
   return (
     <div className="border rounded-lg p-4 bg-white h-64">
       <ResponsiveContainer width="100%" height="100%">
