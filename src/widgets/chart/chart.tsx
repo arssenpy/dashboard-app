@@ -15,7 +15,7 @@ type Props = {
 
 export default function Chart({ data }: Props) {
   return (
-    <div className="border rounded-lg p-4 bg-white h-64">
+    <div className="border rounded-lg p-4 bg-white dark:bg-gray-800 h-64 dark:border-gray-700">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <XAxis dataKey="name" />
