@@ -14,7 +14,6 @@ export function useDashboard() {
     try {
       setLoading(true);
       const res = await getDashboardData();
-      console.log(res);
       setData(res);
     } catch (err) {
       setError("Failed to load");
