@@ -1,5 +1,5 @@
-import { api } from "../../../shared/api/users";
+import { usersApi } from "../../../shared/api/users";
 
 export function getUsers() {
-  return api.get("/users");
+  return usersApi.get("/users");
 }

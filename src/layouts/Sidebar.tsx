@@ -28,6 +28,10 @@ export default function SideBar() {
         <NavLink to="/settings" className={linkClass}>
           Settings
         </NavLink>
+
+        <NavLink to="/weather" className={linkClass}>
+          Weather
+        </NavLink>
       </nav>
     </aside>
   );
