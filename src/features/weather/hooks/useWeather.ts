@@ -3,28 +3,12 @@ import { getWeather } from "../api/getWeather";
 import { getForecast } from "../api/getForecast";
 
 export function useWeather() {
-  const [city, setCity] = useState("");
   const [data, setData] = useState<any>(null);
   const [forecast, setForecast] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const savedCity = localStorage.getItem("city");
-    if (savedCity) {
-      setCity(savedCity);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!city) return;
-
-    fetchWeather();
-  }, [city]);
-
-  async function fetchWeather() {
-    if (!city) return;
-
+  async function fetchWeather(city: string) {
     localStorage.setItem("city", city);
 
     try {
@@ -52,12 +36,10 @@ export function useWeather() {
   }
 
   return {
-    city,
-    setCity,
+    fetchWeather,
     data,
     forecast,
     loading,
     error,
-    fetchWeather,
   };
 }

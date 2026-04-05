@@ -11,8 +11,6 @@ export default function Dashboard() {
 
   if (error) return <div>{error}</div>;
 
-  console.log(data.admins);
-
   return (
     <div className="flex flex-col gap-6">
       <Stats data={data.stats} />
