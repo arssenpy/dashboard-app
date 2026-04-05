@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getWeather } from "../api/getWeather";
 import { getForecast } from "../api/getForecast";
 
@@ -9,8 +9,23 @@ export function useWeather() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const savedCity = localStorage.getItem("city");
+    if (savedCity) {
+      setCity(savedCity);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!city) return;
+
+    fetchWeather();
+  }, [city]);
+
   async function fetchWeather() {
     if (!city) return;
+
+    localStorage.setItem("city", city);
 
     try {
       setLoading(true);
@@ -32,7 +47,6 @@ export function useWeather() {
         setError("Something went wrong");
       }
     } finally {
-      setCity("");
       setLoading(false);
     }
   }

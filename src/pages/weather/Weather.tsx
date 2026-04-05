@@ -1,4 +1,4 @@
-import WeatherCard from "../../features/weather/components/weatherCard";
+import WeatherCard from "../../features/weather/components/WeatherCard";
 import ForecastList from "../../features/weather/components/ForecastList";
 import { useWeather } from "../../features/weather/hooks/useWeather";
 
