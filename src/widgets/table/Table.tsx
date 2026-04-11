@@ -5,7 +5,6 @@ type Props = {
 };
 
 export default function Table({ data }: Props) {
-  console.log(data);
   return (
     <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-4">
       <h2 className="font-semibold mb-3">Admins</h2>

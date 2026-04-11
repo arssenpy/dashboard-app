@@ -4,7 +4,7 @@ import { useDebounce } from "../../../shared/hooks/useDebounce";
 export function useWeatherSearch() {
   const [city, setCity] = useState("");
 
-  const debouncedCity = useDebounce(city, 400);
+  const debouncedCity = useDebounce(city, 1000);
 
   useEffect(() => {
     const saved = localStorage.getItem("city");
